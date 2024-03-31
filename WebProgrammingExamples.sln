@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example1-Stopwatch", "Examp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example3-FormSwitch", "Example3-FormSwitch\Example3-FormSwitch.csproj", "{38B866E8-E001-4D13-8B16-5340B142B63A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example7_8-RazorInteractivePage", "Example7_8-RazorInteractivePage\Example7_8-RazorInteractivePage.csproj", "{97FEBF16-EFC2-4A48-BBC1-591E722F205D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{38B866E8-E001-4D13-8B16-5340B142B63A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38B866E8-E001-4D13-8B16-5340B142B63A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38B866E8-E001-4D13-8B16-5340B142B63A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97FEBF16-EFC2-4A48-BBC1-591E722F205D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97FEBF16-EFC2-4A48-BBC1-591E722F205D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97FEBF16-EFC2-4A48-BBC1-591E722F205D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97FEBF16-EFC2-4A48-BBC1-591E722F205D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

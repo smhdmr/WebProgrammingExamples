@@ -1,0 +1,99 @@
+﻿@* Indicates that this is a razor page *@
+@page
+
+@* Allows to use model class for storing logic *@
+@model Example7_8_RazorInteractivePage.Pages.IndexModel
+
+@using Example7_8_RazorInteractivePage.Models   @* To use Product class *@
+@using Newtonsoft.Json  @* To use JSON Serializing-Deserializing *@
+
+@* Code Block *@
+@{
+    var products = GetSavedProducts();
+
+    // If a form submitted with post method
+    if (HttpContext.Request.Method == HttpMethod.Post.Method)
+    {
+        // Create a product object with submitted form values
+        var newProduct = new Product()
+        {
+            Name = HttpContext.Request.Form["productName"],
+            Quantity = Convert.ToInt32(
+                HttpContext.Request.Form["productQuantity"]
+            )
+        };
+
+        // Add new product to list and save
+        products.Add(newProduct);
+        SaveProducts(products);
+    }
+}
+
+@* Functions Block *@
+@functions
+{
+    /// <summary>
+    /// Returns previously saved products or new product list
+    /// </summary>
+    private List<Product> GetSavedProducts()
+    {
+        if (TempData["Products"] is null)
+        {
+            return new List<Product>();
+        }
+
+        var productsJson = TempData["Products"]!.ToString()!;
+        return JsonConvert.DeserializeObject<List<Product>>(productsJson)!;
+    }
+
+    /// <summary>
+    /// Saves given product list to TempData to persist list even if page refreshes
+    /// </summary>
+    private void SaveProducts(List<Product> products)
+    {
+        var productsJson = JsonConvert.SerializeObject(products);
+        TempData["Products"] = productsJson;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        @* Product save form *@
+        <form method="post">
+            <label for="itemName">Product Name:</label>
+            <input type="text" id="itemName" name="productName" required><br><br>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="productQuantity" required><br><br>
+
+            <button type="submit">Add Product</button>
+        </form>
+
+    <hr>
+    
+    @* Saved Products Table *@
+    <h2>Product List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in products)
+                {
+                    <tr>
+                        <td>@product.Name</td>
+                        <td>@product.Quantity</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </body>
+</html>
