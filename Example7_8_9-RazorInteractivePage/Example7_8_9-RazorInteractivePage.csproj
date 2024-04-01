@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Example7_8_RazorInteractivePage</RootNamespace>
+    <RootNamespace>Example7_8_9_RazorInteractivePage</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

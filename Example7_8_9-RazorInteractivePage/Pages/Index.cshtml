@@ -2,9 +2,9 @@
 @page
 
 @* Allows to use model class for storing logic *@
-@model Example7_8_RazorInteractivePage.Pages.IndexModel
+@model Example7_8_9_RazorInteractivePage.Pages.IndexModel
 
-@using Example7_8_RazorInteractivePage.Models   @* To use Product class *@
+@using Example7_8_9_RazorInteractivePage.Models   @* To use Product class *@
 @using Newtonsoft.Json  @* To use JSON Serializing-Deserializing *@
 
 @* Code Block *@
@@ -20,7 +20,8 @@
             Name = HttpContext.Request.Form["productName"],
             Quantity = Convert.ToInt32(
                 HttpContext.Request.Form["productQuantity"]
-            )
+            ),
+            Description = HttpContext.Request.Form["productDescription"]
         };
 
         // Add new product to list and save
@@ -65,11 +66,20 @@
     <body>
         @* Product save form *@
         <form method="post">
-            <label for="itemName">Product Name:</label>
-            <input type="text" id="itemName" name="productName" required><br><br>
+            <label>
+                <span>Product Name:</span>
+                <input type="text" id="productName" name="productName" required>
+            </label>
 
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="productQuantity" required><br><br>
+            <label>
+                <span>Quantity:</span>
+                <input type="number" id="quantity" name="productQuantity" required>
+            </label>
+
+            <label>
+                <span>Description:</span>
+                <input type="text" id="description" name="productDescription" required>
+            </label>
 
             <button type="submit">Add Product</button>
         </form>
@@ -78,19 +88,23 @@
     
     @* Saved Products Table *@
     <h2>Product List</h2>
-        <table>
+        <table border="1">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
+                    <th style="width: 30%;">Product</th>
+                    <th style="width: 20%;">Quantity</th>
+                    <th style="width: 50%;">Description</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var product in products)
                 {
                     <tr>
-                        <td>@product.Name</td>
-                        <td>@product.Quantity</td>
+                        <td> @product.Name </td>
+                        <td> @product.Quantity </td>
+                        <td>
+                             <marquee> @product.Description </marquee>
+                        </td>
                     </tr>
                 }
             </tbody>

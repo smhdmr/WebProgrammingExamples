@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example1-Stopwatch", "Examp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example3-FormSwitch", "Example3-FormSwitch\Example3-FormSwitch.csproj", "{38B866E8-E001-4D13-8B16-5340B142B63A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example7_8-RazorInteractivePage", "Example7_8-RazorInteractivePage\Example7_8-RazorInteractivePage.csproj", "{97FEBF16-EFC2-4A48-BBC1-591E722F205D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example7_8_9-RazorInteractivePage", "Example7_8_9-RazorInteractivePage\Example7_8_9-RazorInteractivePage.csproj", "{97FEBF16-EFC2-4A48-BBC1-591E722F205D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
